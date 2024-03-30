@@ -39,7 +39,7 @@ at$tuning_result
 
 #Train the model
 learner$param_set$values =
-    at$tuning_result$learner_param_vals[[1]]#用调参得到的最优参数更新学习器的超参数
+    at$tuning_result$learner_param_vals[[1]]
 learner$train(task, row_ids = split$train)
 #Predict and evaluate on the test set
 predictions = learner$predict(task,
