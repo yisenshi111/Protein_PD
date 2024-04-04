@@ -23,8 +23,7 @@ search_space = ps(
     bagging_fraction=p_dbl(lower= 0.8,upper=1),
     feature_fraction=p_dbl(lower= 0.8,upper=1),
     lambda_l1=p_int(lower= 0, upper= 1000),
-    lambda_l2=p_int(lower= 0, upper= 1000),
-    is_unbalance=T)
+    lambda_l2=p_int(lower= 0, upper= 1000))
 
 at = auto_tuner(
     tuner = tnr("random_search"),
@@ -45,3 +44,6 @@ learner$train(task, row_ids = split$train)
 predictions = learner$predict(task,
                               row_ids = split$test)
 predictions$score(msr("classif.auc"))
+###Feature Importance#####
+importance <- as.data.table(learner$importance(),keep.rownames = T)
+
