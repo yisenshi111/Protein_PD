@@ -13,7 +13,7 @@ split = partition(task, ratio = 0.7)
 #remotes::install_github("mlr-org/mlr3extralearners")
 #install.packages("lightgbm")
 library(mlr3extralearners)
-learner = lrn("classif.lightgbm") #The lightgbm package needs to be installed
+learner = lrn("classif.lightgbm", objective = "binary", is_unbalance = TRUE) #The lightgbm package needs to be installed
 
 ##Hyperparameter tuning
 search_space = ps(
