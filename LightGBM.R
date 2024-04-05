@@ -1,7 +1,7 @@
 ####LightGBM#####
 ames <- read.csv("data.csv")
 library(mlr3verse)
-task = as_task_classif(ames, target = "PD")
+task = as_task_classif(ames, target = "PD",positive = "yes")
 task
 #Preprocessing
 prep = po("removeconstants", ratio = 0.05) #Remove features that are approximately constant: exclude if the proportion of distinct values is less than 5%.
